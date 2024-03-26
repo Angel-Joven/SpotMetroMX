@@ -746,6 +746,7 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
                                 TextButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
+                                    reiniciarWidget();
                                   },
                                   child: const Text('OK'),
                                 ),
@@ -791,8 +792,12 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
             if (botonMostrarEstacionesVisible)
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('\nNota:\nEste proceso puede tardar desde varios segundos hasta unos minutos, dependiendo de la distancia ingresada y de su conexion a internet. Por favor, sea paciente...',
-                  style: const TextStyle(fontSize: 12.0),
+                child: Center(
+                  child: Text(
+                    '\nNota:\nEste proceso puede tardar desde varios segundos hasta unos minutos, dependiendo de la distancia ingresada y de su conexión a internet. Por favor, sea paciente...',
+                    style: const TextStyle(fontSize: 12.0),
+                    textAlign: TextAlign.center, // Para centrar el texto horizontalmente
+                  ),
                 ),
               ),
             if (infoUbicacionActualVisible)
@@ -831,42 +836,44 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
               ),
 
             const SizedBox(height: 20),
-              Container(
-                alignment: Alignment.center,
-                child: Center(
-                  child: ElevatedButton(
-                    onPressed: (){
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text('Consejos'),
-                            content: const Text(
-                                  '- Si se encuentra en la ZONA CENTRO de la CDMX, lo recomendable es asignar un radio de busqueda de 500 a 2,000 metros.\n'
+            Container(
+              alignment: Alignment.center,
+              child: Center(
+                child: ElevatedButton(
+                  onPressed: (){
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Consejos'),
+                          content: SingleChildScrollView(
+                            child: const Text(
+                              '- Si se encuentra en la ZONA CENTRO de la CDMX, lo recomendable es asignar un radio de busqueda de 500 a 2,000 metros.\n'
                                   '\n- Si vive en el Estado de Mexico y se encuentra CERCA de las periferias de la CDMX, lo recomendable es asignar un radio de busqueda de 2,000 a 4,000 metros.\n'
                                   '\n- Si vive en el Estado de Mexico y se encuentra LEJOS de las periferias de la CDMX, lo recomendable es asignar un radio de busqueda de 4,000 a 10,000 metros.\n'
-                                      '\nNota:\n'
+                                  '\nNota:\n'
                                   '\n- Si la tabla no le devolvio estaciones cercanas, intente ingresar una nueva distancia mayor a la que ingreso previamente.\n'
                                   '\n- La distancia mostrada en la tabla no es exacta y puede no coincidir al momento de generar la ruta en Google Maps. '
                                   'Esto se debe a los algoritmos que usa Google Maps al momento de generar la ruta ya que Google Maps contempla Calles, Avenidas, Rotondas, Puentes, Trafico Actual, Cierre de Vialidades, etc.',
                               style: TextStyle(fontSize: 12.0),
                             ),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                    child: const Text('¡Ver consejos!'),
-                  ),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: const Text('¡Ver consejos!'),
                 ),
               ),
+            ),
             const SizedBox(height: 15),
             Container(
               alignment: Alignment.center,
