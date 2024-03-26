@@ -1,10 +1,10 @@
 # SpotMetroMX
 Codigo Fuente de la aplicacion movil 'SpotMetro MX'
 
-Version del SDK Minima: 19 (Android 4.4)
-Version del SDK diseñada para esta APP: 34 (Android 14)
-Version del SDK compilada para esta APP: 34 (Android 14)
-Version de Android Requerida: 7.0 en adelante
+- Version del SDK Minima: 19 (Android 4.4)
+- Version del SDK diseñada para esta APP: 34 (Android 14)
+- Version del SDK compilada para esta APP: 34 (Android 14)
+- Version de Android Requerida: 7.0 en adelante
 
 APLICACION TESTEADA EN LAS SIGUIENTES VERSIONES:
 - ANDROID 7.0
