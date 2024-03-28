@@ -35,7 +35,9 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
   bool botonConfirmarDistanciaVisible = true;
   bool mostrarContenidoTabla = false;
   bool mostrarCeldaDistancia = true;
-  bool datosCeldaConfirmados = false; //Bloquear el TextField
+  bool datosCeldaConfirmados = false; //Bloquear el TextField (Celda en donde se ingresa la distancia)
+  bool botonVolverCargarPagina = false;
+  bool botonVerConsejos = true;
   late TextEditingController distanciaController; //Creacion del controlador de Distancia
 
   final Map<String, String> imagenesEstacionesMapa = {
@@ -632,6 +634,9 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
       mostrarContenidoTabla = false;
       mostrarCeldaDistancia = true;
       datosCeldaConfirmados = false;
+      botonVolverCargarPagina = false;
+      botonVolverCargarPagina = false;
+      botonVerConsejos = true;
       estacionesCercanasMapa.clear();
       listaCoordenadasEstaciones.clear();
     });
@@ -703,6 +708,7 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
                       botonConfirmarDistanciaVisible = false;
                       botonMostrarEstacionesVisible = true;
                       datosCeldaConfirmados = true;
+                      botonVerConsejos = false;
                       setState(() {
                         estacionesCercanasMapa.clear();
                         listaCoordenadasEstaciones.clear();
@@ -773,6 +779,7 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
                         infoUbicacionActualVisible = true;
                         mostrarContenidoTabla = true;
                         mostrarCeldaDistancia = false;
+                        botonVolverCargarPagina = true;
                         estacionesCercanasMapa.clear();
                         listaCoordenadasEstaciones.clear();
                       });
@@ -836,6 +843,18 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
               ),
 
             const SizedBox(height: 20),
+            if(botonConfirmarDistanciaVisible)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text(
+                  'Nota:\nEn algunos dispositivos celulares, la opcion "habilitar ubicacion"\ndebe ser activada manualmente.\n\nSi la APP no le pregunto si usted queria "habilitar la ubicacion",\nentonces debe de activarla manualmente. Para ello, vaya a:\n\nConfiguracion (Ajustes) -> Aplicaciones -> "SpotMetro MX" -> Permisos -> Habilitar Ubicacion.\n',
+                  style: const TextStyle(fontSize: 12.0),
+                  textAlign: TextAlign.center, // Para centrar el texto horizontalmente
+                ),
+              ),
+            ),
+            if (botonVerConsejos)
             Container(
               alignment: Alignment.center,
               child: Center(
@@ -874,7 +893,9 @@ class _EstacionesCercanasState extends State<EstacionesCercanas> {
                 ),
               ),
             ),
+            if (botonVerConsejos)
             const SizedBox(height: 15),
+            if (botonVolverCargarPagina)
             Container(
               alignment: Alignment.center,
               child: Center(

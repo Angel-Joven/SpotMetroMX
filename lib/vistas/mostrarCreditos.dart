@@ -26,7 +26,7 @@ class _pantallaCreditosState extends State<pantallaCreditos> {
 
   // Para PC
   void abrirCodigoFuentePC(String url) async {
-    const url = 'https://github.com/Angel-Joven/SpotMetroMX'; // Reemplaza con tu URL de GitHub
+    const url = 'https://github.com/Angel-Joven/SpotMetroMX';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -70,7 +70,7 @@ class _pantallaCreditosState extends State<pantallaCreditos> {
             } else {
               if (snapshot.hasError) {
                 return const Center(
-                  child: Text('Error al obtener la imagen'),
+                  child: Text('Error:\n¡Asegurese de estar conectado a internet!\nSi el problema persiste, ¡Contacte al administrador de la aplicacion!'),
                 );
               } else {
                 final datosInfoCreditos = snapshot.data as DocumentSnapshot;
