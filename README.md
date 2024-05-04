@@ -22,3 +22,6 @@ APLICACION TESTEADA EN LAS SIGUIENTES VERSIONES:
 Nota:
 Algunas versiones de Android igual o posteriores a 7.0 es necesario habilitar permisos de ubicacion de manera manual. Para ello, vaya a:
 - Configuracion (Ajustes) -> Aplicaciones -> 'SpotMetro MX' -> Permisos -> Habilitar Ubicacion.
+
+LINK DEL ZIP DEL CODIGO FUENTE:
+
