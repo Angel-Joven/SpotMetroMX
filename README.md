@@ -24,4 +24,4 @@ Algunas versiones de Android igual o posteriores a 7.0 es necesario habilitar pe
 - Configuracion (Ajustes) -> Aplicaciones -> 'SpotMetro MX' -> Permisos -> Habilitar Ubicacion.
 
 LINK DEL ZIP DEL CODIGO FUENTE COMPLETO:
-https://drive.google.com/file/d/1CJPhWPSUSb3zCoOhSsgB_22_K4RShVgI/view?usp=sharing
+- https://drive.google.com/file/d/1CJPhWPSUSb3zCoOhSsgB_22_K4RShVgI/view?usp=sharing
